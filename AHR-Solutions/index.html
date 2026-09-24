@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHR Solutions | Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="login-page">
+  <main class="login-container">
+    <section class="login-card">
+      <div class="brand">
+        <div class="brand-mark">AHR</div>
+        <div>
+          <h1>AHR SOLUTIONS</h1>
+          <p>Central de Atendimento e Suporte Interno</p>
+        </div>
+      </div>
+
+      <form id="loginForm" class="form">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <div class="password-field">
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+            <button type="button" class="password-toggle" id="togglePassword" aria-label="Mostrar senha">👁</button>
+          </div>
+        </div>
+
+        <p id="loginError" class="form-error hidden">E-mail ou senha incorretos.</p>
+        <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+      </form>
+
+      <p class="demo-hint">
+        Demonstração: use <strong>funcionario@ahr.com</strong>,
+        <strong>agente@ahr.com</strong> ou <strong>admin@ahr.com</strong>.
+        Senha: <strong>123456</strong>
+      </p>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

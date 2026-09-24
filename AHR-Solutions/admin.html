@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHR Solutions | Administração</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="appShell"></div>
+  <main class="main-content">
+    <header class="page-header"><div><p class="eyebrow">Configurações</p><h1>Administração</h1><p>Gerencie usuários, equipes e categorias.</p></div></header>
+    <section class="stats-grid admin-stats">
+      <article class="stat-card"><span>Usuários</span><strong>24</strong><small>Cadastros ativos</small></article>
+      <article class="stat-card"><span>Equipes</span><strong>4</strong><small>TI, RH, Financeiro e Facilities</small></article>
+      <article class="stat-card"><span>Categorias</span><strong>8</strong><small>Distribuídas entre equipes</small></article>
+    </section>
+    <section class="content-grid">
+      <article class="card"><div class="section-heading"><div><h2>Usuários</h2><p>Exemplo de usuários cadastrados.</p></div><button class="btn btn-secondary" type="button">+ Novo usuário</button></div><div class="table-wrap"><table><thead><tr><th>Nome</th><th>E-mail</th><th>Perfil</th><th>Status</th></tr></thead><tbody><tr><td>João Silva</td><td>joao@ahr.com</td><td>Funcionário</td><td><span class="badge badge-success">Ativo</span></td></tr><tr><td>Carlos Mendes</td><td>carlos@ahr.com</td><td>Agente</td><td><span class="badge badge-success">Ativo</span></td></tr><tr><td>Maria Souza</td><td>maria@ahr.com</td><td>Admin</td><td><span class="badge badge-success">Ativo</span></td></tr></tbody></table></div></article>
+      <article class="card"><h2>Equipes e categorias</h2><ul class="simple-list"><li><span>TI</span><strong>3 categorias</strong></li><li><span>RH</span><strong>2 categorias</strong></li><li><span>Financeiro</span><strong>2 categorias</strong></li><li><span>Facilities</span><strong>1 categoria</strong></li></ul></article>
+    </section>
+  </main>
+  <script src="js/app.js"></script><script>requireLogin(); renderShell('admin');</script>
+</body>
+</html>

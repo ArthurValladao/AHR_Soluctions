@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHR Solutions | Meus Chamados</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="appShell"></div>
+  <main class="main-content">
+    <header class="page-header">
+      <div><p class="eyebrow">Solicitações</p><h1>Meus Chamados</h1><p>Consulte e acompanhe seus chamados.</p></div>
+      <a class="btn btn-primary" href="novo-chamado.html">+ Abrir chamado</a>
+    </header>
+
+    <section class="card">
+      <div class="filters">
+        <input id="searchTickets" type="search" placeholder="Buscar por título ou ID...">
+        <select id="statusFilter"><option value="">Todos os status</option><option>Aberto</option><option>Em análise</option><option>Em andamento</option><option>Aguardando solicitante</option><option>Resolvido</option><option>Fechado</option></select>
+        <select id="priorityFilter"><option value="">Todas as prioridades</option><option>Baixa</option><option>Média</option><option>Alta</option><option>Urgente</option></select>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>ID</th><th>Título</th><th>Categoria</th><th>Prioridade</th><th>Status</th><th>Data</th></tr></thead>
+        <tbody id="ticketsTable"></tbody></table>
+      </div>
+    </section>
+  </main>
+  <script src="js/app.js"></script><script src="js/chamados.js"></script>
+</body>
+</html>
