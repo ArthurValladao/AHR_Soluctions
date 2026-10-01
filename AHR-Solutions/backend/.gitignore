@@ -31,3 +31,27 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Arquivos sensíveis
+.env
+.env.*
+application.properties
+application.yml
+application.yaml
+
+# Maven
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
