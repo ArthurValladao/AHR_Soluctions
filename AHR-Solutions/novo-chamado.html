@@ -1,28 +1,229 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>AHR Solutions | Novo Chamado</title>
-  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
+
   <div id="appShell"></div>
+
   <main class="main-content">
-    <header class="page-header"><div><p class="eyebrow">Solicitação</p><h1>Abrir novo chamado</h1><p>Informe os detalhes para que a equipe possa ajudar.</p></div></header>
+
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Solicitação</p>
+
+        <h1>Abrir novo chamado</h1>
+
+        <p>
+          Informe os detalhes para que a equipe possa ajudar.
+        </p>
+      </div>
+    </header>
+
     <section class="card form-card">
+
       <form id="newTicketForm" class="form">
-        <div class="form-group"><label for="title">Título</label><input id="title" required maxlength="100" placeholder="Ex.: Computador não liga"></div>
-        <div class="form-grid">
-          <div class="form-group"><label for="category">Categoria / Setor</label><select id="category" required><option value="">Selecione...</option><option>TI</option><option>RH</option><option>Financeiro</option><option>Facilities</option></select></div>
-          <div class="form-group"><label for="priority">Prioridade</label><select id="priority" required><option>Baixa</option><option selected>Média</option><option>Alta</option><option>Urgente</option></select></div>
+
+        <!-- TÍTULO -->
+        <div class="form-group">
+
+          <label for="title">
+            Título
+          </label>
+
+          <input
+            id="title"
+            type="text"
+            required
+            maxlength="100"
+            placeholder="Ex.: Computador não liga"
+          >
+
         </div>
-        <div class="form-group"><label for="description">Descrição</label><textarea id="description" rows="7" required placeholder="Explique o problema ou solicitação com o máximo de detalhes possível."></textarea></div>
-        <div class="form-group"><label for="attachment">Anexo (opcional)</label><input id="attachment" type="file"></div>
-        <p id="ticketSuccess" class="success-message hidden">Chamado criado com sucesso!</p>
-        <div class="form-actions"><a href="chamados.html" class="btn btn-secondary">Cancelar</a><button class="btn btn-primary" type="submit">Criar chamado</button></div>
+
+
+        <div class="form-grid">
+
+          <!-- CATEGORIA -->
+          <div class="form-group">
+
+            <label for="category">
+              Categoria
+            </label>
+
+            <select id="category" required>
+
+              <option value="">
+                Selecione...
+              </option>
+
+              <optgroup label="TI">
+
+                <option value="1">
+                  Hardware
+                </option>
+
+                <option value="2">
+                  Software
+                </option>
+
+                <option value="3">
+                  Rede
+                </option>
+
+              </optgroup>
+
+
+              <optgroup label="RH">
+
+                <option value="4">
+                  Documentação
+                </option>
+
+                <option value="5">
+                  Benefícios
+                </option>
+
+              </optgroup>
+
+
+              <optgroup label="Financeiro">
+
+                <option value="6">
+                  Pagamentos
+                </option>
+
+                <option value="7">
+                  Reembolsos
+                </option>
+
+              </optgroup>
+
+
+              <optgroup label="Facilities">
+
+                <option value="8">
+                  Manutenção
+                </option>
+
+              </optgroup>
+
+            </select>
+
+          </div>
+
+
+          <!-- PRIORIDADE -->
+          <div class="form-group">
+
+            <label for="priority">
+              Prioridade
+            </label>
+
+            <select id="priority" required>
+
+              <option value="BAIXA">
+                Baixa
+              </option>
+
+              <option value="MEDIA" selected>
+                Média
+              </option>
+
+              <option value="ALTA">
+                Alta
+              </option>
+
+              <option value="URGENTE">
+                Urgente
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- DESCRIÇÃO -->
+        <div class="form-group">
+
+          <label for="description">
+            Descrição
+          </label>
+
+          <textarea
+            id="description"
+            rows="7"
+            required
+            placeholder="Explique o problema ou solicitação com o máximo de detalhes possível."
+          ></textarea>
+
+        </div>
+
+
+        <!-- ANEXO -->
+        <div class="form-group">
+
+          <label for="attachment">
+            Anexo (opcional)
+          </label>
+
+          <input
+            id="attachment"
+            type="file"
+          >
+
+        </div>
+
+
+        <!-- MENSAGEM DE SUCESSO -->
+        <p
+          id="ticketSuccess"
+          class="success-message hidden"
+        >
+          Chamado criado com sucesso!
+        </p>
+
+
+        <!-- BOTÕES -->
+        <div class="form-actions">
+
+          <a
+            href="chamados.html"
+            class="btn btn-secondary"
+          >
+            Cancelar
+          </a>
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Criar chamado
+          </button>
+
+        </div>
+
       </form>
+
     </section>
+
   </main>
-  <script src="js/app.js"></script><script src="js/novo-chamado.js"></script>
+
+
+  <script src="js/app.js"></script>
+  <script src="js/novo-chamado.js"></script>
+
 </body>
+
 </html>

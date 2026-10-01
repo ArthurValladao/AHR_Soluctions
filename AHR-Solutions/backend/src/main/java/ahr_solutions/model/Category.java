@@ -8,7 +8,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "team_id")
@@ -24,7 +24,7 @@ public class Category {
         this.team = team;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

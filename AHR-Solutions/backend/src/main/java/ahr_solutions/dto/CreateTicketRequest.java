@@ -5,8 +5,9 @@ public class CreateTicketRequest {
     private String title;
     private String description;
     private String priority;
-    private Long categoryId;
-    private Long requesterId;
+
+    private Integer categoryId;
+    private Integer requesterId;
 
     public CreateTicketRequest() {
     }
@@ -35,19 +36,19 @@ public class CreateTicketRequest {
         this.priority = priority;
     }
 
-    public Long getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
-    public Long getRequesterId() {
+    public Integer getRequesterId() {
         return requesterId;
     }
 
-    public void setRequesterId(Long requesterId) {
+    public void setRequesterId(Integer requesterId) {
         this.requesterId = requesterId;
     }
 }

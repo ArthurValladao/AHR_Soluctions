@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
+})
 @RestController
 @RequestMapping("/api/tickets")
 public class TicketController {
@@ -19,10 +23,12 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
-@PostMapping
-public Ticket criarChamado(@RequestBody CreateTicketRequest request) {
-    return ticketService.criarChamado(request);
-}
+    @PostMapping
+    public Ticket criarChamado(
+            @RequestBody CreateTicketRequest request
+    ) {
+        return ticketService.criarChamado(request);
+    }
 
     @GetMapping
     public List<Ticket> listarChamados() {
@@ -30,15 +36,18 @@ public Ticket criarChamado(@RequestBody CreateTicketRequest request) {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ticket> buscarPorId(@PathVariable Long id) {
-
+    public ResponseEntity<Ticket> buscarPorId(
+            @PathVariable Integer id
+    ) {
         return ticketService.buscarPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluirChamado(@PathVariable Long id) {
+    public ResponseEntity<Void> excluirChamado(
+            @PathVariable Integer id
+    ) {
 
         if (ticketService.buscarPorId(id).isEmpty()) {
             return ResponseEntity.notFound().build();

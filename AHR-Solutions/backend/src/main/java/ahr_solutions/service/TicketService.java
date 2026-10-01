@@ -60,11 +60,11 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
-    public Optional<Ticket> buscarPorId(Long id) {
+    public Optional<Ticket> buscarPorId(Integer id) {
         return ticketRepository.findById(id);
     }
 
-    public void excluirChamado(Long id) {
+    public void excluirChamado(Integer id) {
         ticketRepository.deleteById(id);
     }
 }

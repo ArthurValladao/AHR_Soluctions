@@ -7,13 +7,9 @@ import java.time.LocalDateTime;
 @Table(name = "tickets")
 public class Ticket {
 
-    // =========================
-    // ATRIBUTOS
-    // =========================
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -54,11 +50,6 @@ public class Ticket {
     @Column(name = "due_at")
     private LocalDateTime dueAt;
 
-
-    // =========================
-    // CONSTRUTORES
-    // =========================
-
     public Ticket() {
     }
 
@@ -82,12 +73,7 @@ public class Ticket {
         this.updatedAt = LocalDateTime.now();
     }
 
-
-    // =========================
-    // GETTERS E SETTERS
-    // =========================
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
