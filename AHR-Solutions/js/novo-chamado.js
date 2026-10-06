@@ -1,54 +1,76 @@
 requireLogin();
 renderShell("new");
 
-document.getElementById("newTicketForm").addEventListener("submit", async (event) => {
-  event.preventDefault();
+document
+  .getElementById("newTicketForm")
+  .addEventListener("submit", async (event) => {
 
-  const ticket = {
-    title: document.getElementById("title").value,
-    description: document.getElementById("description").value,
-    priority: document.getElementById("priority").value,
+    event.preventDefault();
 
-    categoryId: Number(document.getElementById("category").value),
+    const ticket = {
+      title: document.getElementById("title").value.trim(),
 
-    // temporário enquanto ainda não ligamos o login real ao backend
-    requesterId: 1
-  };
+      description:
+        document.getElementById("description").value.trim(),
 
-  try {
+      priority:
+        document.getElementById("priority").value,
 
-    const response = await fetch("http://localhost:8080/api/tickets", {
-      method: "POST",
+      categoryId: Number(
+        document.getElementById("category").value
+      ),
 
-      headers: {
-        "Content-Type": "application/json"
-      },
+      requesterId: 1
+    };
 
-      body: JSON.stringify(ticket)
-    });
+    try {
 
-    if (!response.ok) {
-      throw new Error("Erro ao criar chamado");
+      const response = await fetch(
+        `${API_URL}/tickets`,
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify(ticket)
+        }
+      );
+
+      const resultado =
+        await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          resultado.message ||
+          "Erro ao criar chamado"
+        );
+      }
+
+      console.log(
+        "Chamado criado:",
+        resultado.data
+      );
+
+      document
+        .getElementById("ticketSuccess")
+        .classList.remove("hidden");
+
+      event.target.reset();
+
+      setTimeout(() => {
+        window.location.href =
+          "chamados.html";
+      }, 1200);
+
+    } catch (erro) {
+
+      console.error(
+        "Erro ao criar chamado:",
+        erro
+      );
+
+      alert(erro.message);
     }
-
-    const chamadoCriado = await response.json();
-
-    console.log("Chamado criado:", chamadoCriado);
-
-    document
-      .getElementById("ticketSuccess")
-      .classList.remove("hidden");
-
-    event.target.reset();
-
-    setTimeout(() => {
-      window.location.href = "chamados.html";
-    }, 1200);
-
-  } catch (erro) {
-
-    console.error("Erro:", erro);
-
-    alert("Não foi possível criar o chamado.");
-  }
-});
+  });

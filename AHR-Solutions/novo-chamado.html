@@ -3,12 +3,24 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>AHR Solutions | Novo Chamado</title>
+  <title>
+    AHR Solutions | Novo Chamado
+  </title>
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/responsive.css"
+  >
 </head>
 
 <body>
@@ -18,22 +30,32 @@
   <main class="main-content">
 
     <header class="page-header">
-      <div>
-        <p class="eyebrow">Solicitação</p>
 
-        <h1>Abrir novo chamado</h1>
+      <div>
+
+        <p class="eyebrow">
+          Solicitação
+        </p>
+
+        <h1>
+          Abrir novo chamado
+        </h1>
 
         <p>
           Informe os detalhes para que a equipe possa ajudar.
         </p>
+
       </div>
+
     </header>
 
     <section class="card form-card">
 
-      <form id="newTicketForm" class="form">
+      <form
+        id="newTicketForm"
+        class="form"
+      >
 
-        <!-- TÍTULO -->
         <div class="form-group">
 
           <label for="title">
@@ -50,17 +72,18 @@
 
         </div>
 
-
         <div class="form-grid">
 
-          <!-- CATEGORIA -->
           <div class="form-group">
 
             <label for="category">
               Categoria
             </label>
 
-            <select id="category" required>
+            <select
+              id="category"
+              required
+            >
 
               <option value="">
                 Selecione...
@@ -82,7 +105,6 @@
 
               </optgroup>
 
-
               <optgroup label="RH">
 
                 <option value="4">
@@ -94,7 +116,6 @@
                 </option>
 
               </optgroup>
-
 
               <optgroup label="Financeiro">
 
@@ -108,7 +129,6 @@
 
               </optgroup>
 
-
               <optgroup label="Facilities">
 
                 <option value="8">
@@ -121,21 +141,25 @@
 
           </div>
 
-
-          <!-- PRIORIDADE -->
           <div class="form-group">
 
             <label for="priority">
               Prioridade
             </label>
 
-            <select id="priority" required>
+            <select
+              id="priority"
+              required
+            >
 
               <option value="BAIXA">
                 Baixa
               </option>
 
-              <option value="MEDIA" selected>
+              <option
+                value="MEDIA"
+                selected
+              >
                 Média
               </option>
 
@@ -153,8 +177,6 @@
 
         </div>
 
-
-        <!-- DESCRIÇÃO -->
         <div class="form-group">
 
           <label for="description">
@@ -170,8 +192,6 @@
 
         </div>
 
-
-        <!-- ANEXO -->
         <div class="form-group">
 
           <label for="attachment">
@@ -185,8 +205,6 @@
 
         </div>
 
-
-        <!-- MENSAGEM DE SUCESSO -->
         <p
           id="ticketSuccess"
           class="success-message hidden"
@@ -194,8 +212,6 @@
           Chamado criado com sucesso!
         </p>
 
-
-        <!-- BOTÕES -->
         <div class="form-actions">
 
           <a
@@ -219,7 +235,6 @@
     </section>
 
   </main>
-
 
   <script src="js/app.js"></script>
   <script src="js/novo-chamado.js"></script>

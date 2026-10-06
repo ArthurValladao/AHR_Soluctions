@@ -1,35 +1,79 @@
-// Controle da tela de login.
-const loginForm = document.getElementById("loginForm");
-const loginError = document.getElementById("loginError");
-const togglePassword = document.getElementById("togglePassword");
-const passwordInput = document.getElementById("password");
+const form =
+  document.getElementById("loginForm");
 
-togglePassword.addEventListener("click", () => {
-  const isPassword = passwordInput.type === "password";
-  passwordInput.type = isPassword ? "text" : "password";
-  togglePassword.textContent = isPassword ? "🙈" : "👁";
-});
+const errorMessage =
+  document.getElementById("loginError");
 
-loginForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+form.addEventListener(
+  "submit",
+  async (event) => {
 
-  const email = document.getElementById("email").value.trim().toLowerCase();
-  const password = passwordInput.value;
+    event.preventDefault();
 
-  // Demonstração local. Depois será substituído pela chamada ao backend.
-  const user = demoUsers[email];
+    const email =
+      document
+        .getElementById("email")
+        .value
+        .trim();
 
-  if (user && password === "123456") {
-    saveUser(user);
+    const password =
+      document
+        .getElementById("password")
+        .value;
 
-    if (user.role === "Admin") {
-      window.location.href = "admin.html";
-    } else if (user.role === "Agente") {
-      window.location.href = "fila.html";
-    } else {
-      window.location.href = "dashboard.html";
+    try {
+
+      errorMessage.textContent = "";
+      errorMessage.classList.add("hidden");
+
+      const response =
+        await fetch(
+          `${API_URL}/auth/login`,
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+              email,
+              password
+            })
+          }
+        );
+
+      const resultado =
+        await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          resultado.message ||
+          "E-mail ou senha incorretos"
+        );
+      }
+
+      localStorage.setItem(
+        "ahrUser",
+        JSON.stringify(
+          resultado.data
+        )
+      );
+
+      window.location.href =
+        "dashboard.html";
+
+    } catch (erro) {
+
+      console.error(erro);
+
+      errorMessage.textContent =
+        erro.message;
+
+      errorMessage.classList.remove(
+        "hidden"
+      );
     }
-  } else {
-    loginError.classList.remove("hidden");
   }
-});
+);
