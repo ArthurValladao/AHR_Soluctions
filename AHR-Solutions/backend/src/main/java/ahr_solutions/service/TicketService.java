@@ -1,6 +1,7 @@
 package ahr_solutions.service;
 
 import ahr_solutions.dto.CreateTicketRequest;
+import ahr_solutions.exception.ResourceNotFoundException;
 import ahr_solutions.model.Category;
 import ahr_solutions.model.Ticket;
 import ahr_solutions.model.User;
@@ -11,7 +12,6 @@ import ahr_solutions.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TicketService {
@@ -35,13 +35,17 @@ public class TicketService {
         Category category = categoryRepository
                 .findById(request.getCategoryId())
                 .orElseThrow(() ->
-                        new RuntimeException("Categoria não encontrada")
+                        new ResourceNotFoundException(
+                                "Categoria não encontrada"
+                        )
                 );
 
         User requester = userRepository
                 .findById(request.getRequesterId())
                 .orElseThrow(() ->
-                        new RuntimeException("Usuário não encontrado")
+                        new ResourceNotFoundException(
+                                "Usuário não encontrado"
+                        )
                 );
 
         Ticket ticket = new Ticket(
@@ -60,11 +64,21 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
-    public Optional<Ticket> buscarPorId(Integer id) {
-        return ticketRepository.findById(id);
+    public Ticket buscarPorId(Integer id) {
+
+        return ticketRepository
+                .findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Chamado não encontrado"
+                        )
+                );
     }
 
     public void excluirChamado(Integer id) {
-        ticketRepository.deleteById(id);
+
+        Ticket ticket = buscarPorId(id);
+
+        ticketRepository.delete(ticket);
     }
 }

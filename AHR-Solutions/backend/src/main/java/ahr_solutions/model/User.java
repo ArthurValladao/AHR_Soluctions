@@ -1,5 +1,6 @@
 package ahr_solutions.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -19,10 +20,12 @@ public class User {
 
     private String email;
 
-    @Column(name = "password_hash")
-    private String passwordHash;
+    @JsonIgnore
+@Column(name = "password_hash")
+private String passwordHash;
 
     private String role;
+    
 
     private boolean active;
 
