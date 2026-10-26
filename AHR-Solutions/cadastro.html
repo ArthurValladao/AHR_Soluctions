@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Usuário | AHR Solutions</title>
+
+    <!-- Estilos exclusivos da tela de cadastro -->
+    <link rel="stylesheet" href="css/cadastro.css">
+
+    <!-- Comportamento e validações do formulário -->
+    <script src="js/cadastro.js" defer></script>
+</head>
+
+<body>
+    <main class="pagina-cadastro">
+
+        <header class="cabecalho">
+            <a class="marca" href="index.html" aria-label="AHR Solutions - Início">
+                <span class="marca-icone">AHR</span>
+                <span class="marca-nome">Solutions</span>
+            </a>
+
+            <a class="link-voltar" href="index.html">
+                ← Voltar ao início
+            </a>
+        </header>
+
+        <!-- Área principal do formulário -->
+        <section class="cartao-cadastro">
+
+            <div class="introducao">
+                <span class="etiqueta">GESTÃO DE ACESSO</span>
+
+                <h1>Criar uma conta</h1>
+
+                <p>
+                    Cadastre os dados do funcionário para preparar
+                    seu acesso ao sistema de suporte.
+                </p>
+            </div>
+
+            <!-- Mensagens de sucesso ou erro -->
+            <div
+                id="mensagem"
+                class="mensagem"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+
+            <form id="formCadastro">
+
+                <div class="grupo-campo">
+                    <label for="nome">Nome completo</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite o nome completo"
+                        autocomplete="name"
+                        minlength="3"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div class="linha-campos">
+                    <div class="grupo-campo">
+                        <label for="email">E-mail corporativo</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="nome@empresa.com"
+                            autocomplete="email"
+                            maxlength="150"
+                            required
+                        >
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="telefone">Telefone</label>
+                        <input
+                            type="tel"
+                            id="telefone"
+                            name="telefone"
+                            placeholder="(00) 00000-0000"
+                            autocomplete="tel"
+                            maxlength="20"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="setor">Setor</label>
+                    <select id="setor" name="setor" required>
+                        <option value="">Selecione o setor</option>
+                        <option value="TI">Tecnologia da Informação</option>
+                        <option value="RH">Recursos Humanos</option>
+                        <option value="Financeiro">Financeiro</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Atendimento">Atendimento</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="linha-campos">
+                    <div class="grupo-campo">
+                        <label for="senha">Senha</label>
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Mínimo de 8 caracteres"
+                            autocomplete="new-password"
+                            minlength="8"
+                            maxlength="72"
+                            required
+                        >
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="confirmarSenha">Confirmar senha</label>
+                        <input
+                            type="password"
+                            id="confirmarSenha"
+                            name="confirmarSenha"
+                            placeholder="Digite novamente"
+                            autocomplete="new-password"
+                            minlength="8"
+                            maxlength="72"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <p class="aviso-seguranca">
+                    Os dados deverão ser enviados ao servidor para
+                    que a conta seja criada de verdade.
+                </p>
+
+                <button type="submit" id="botaoCadastrar">
+                    Validar cadastro
+                </button>
+
+                <p class="rodape-formulario">
+                    Já possui uma conta?
+                    <a href="index.html">Voltar para o login</a>
+                </p>
+
+            </form>
+        </section>
+
+        <footer class="rodape">
+            AHR Solutions · Sistema de gestão de chamados
+        </footer>
+
+    </main>
+</body>
+</html>
